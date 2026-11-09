@@ -16,6 +16,7 @@ function Ext({ href, children }: { href: string; children: React.ReactNode }) {
 }
 
 export default function About() {
+  const wfCount = talks.filter((t) => t.wf).length;
   const dates = talks.map((t) => t.publishedAt).filter(Boolean).sort() as string[];
   const from = new Date(dates[0]).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
   const to = new Date(dates[dates.length - 1]).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
@@ -48,6 +49,9 @@ export default function About() {
           {talks.length.toLocaleString()} videos from the AI Engineer YouTube channel, published between {from} and {to}. That covers World&rsquo;s
           Fair sessions and talks from the organizers&rsquo; earlier summits and online events; this site does not label which event each talk
           belongs to.
+          {" "}{wfCount} of them were matched, by title and speaker, to sessions in the official 2026 World&rsquo;s Fair program; those show their
+          track, day, room and speakers and carry a World&rsquo;s Fair 2026 badge. The match is automatic and conservative, so some World&rsquo;s Fair
+          talks are not tagged.
         </p>
         <p>
           For each video, an automated research pipeline read the transcript, summarized it, researched the companies and technologies mentioned,

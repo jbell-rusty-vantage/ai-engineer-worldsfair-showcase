@@ -32,7 +32,7 @@ export default async function CategoryPage({ params }: Props) {
   const { code } = await params;
   const c = resolve(code);
   if (!c) notFound();
-  const items = talksByCategory(code).map((t) => ({ id: t.id, title: t.title, publishedAt: t.publishedAt, form: t.form, difficulty: t.difficulty, org: t.org, tech: t.tech }));
+  const items = talksByCategory(code).map((t) => ({ id: t.id, title: t.title, publishedAt: t.publishedAt, form: t.form, difficulty: t.difficulty, org: t.org, tech: t.tech, wf: t.wf }));
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-10 sm:py-14">

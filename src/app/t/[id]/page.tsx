@@ -114,6 +114,21 @@ export default async function TalkPage({ params }: Props) {
           {r.organization && <span>Featured: {r.organization.name}</span>}
           <span>Video {r.id}</span>
         </p>
+        {r.worldsFair && (
+          <div className="mt-4 rounded-xl border border-line bg-accent-soft p-4 text-sm leading-6">
+            <p className="font-medium text-accent">AI Engineer World&rsquo;s Fair 2026</p>
+            <p className="mt-1">
+              {[r.worldsFair.track, r.worldsFair.day, r.worldsFair.time, r.worldsFair.room].filter(Boolean).join(" · ")}
+            </p>
+            {r.worldsFair.speakers.length > 0 && (
+              <p className="mt-1 text-muted">
+                {r.worldsFair.speakers
+                  .map((s) => [s.name, [s.role, s.company].filter(Boolean).join(", ")].filter(Boolean).join(" — "))
+                  .join(" · ")}
+              </p>
+            )}
+          </div>
+        )}
         <a
           href={r.url}
           target="_blank"

@@ -4,6 +4,7 @@ import { categories, categoryCounts, talks } from "@/lib/data";
 export default function Home() {
   const counts = categoryCounts();
   const orgs = new Set(talks.map((t) => t.org).filter(Boolean)).size;
+  const wfCount = talks.filter((t) => t.wf).length;
   const uncategorized = counts.get("uncategorized") ?? 0;
 
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-4 text-sm">
           <div><dt className="text-muted">Talks</dt><dd className="h-serif text-2xl font-semibold">{talks.length.toLocaleString()}</dd></div>
           <div><dt className="text-muted">Categories</dt><dd className="h-serif text-2xl font-semibold">{categories.length}</dd></div>
+          <div><dt className="text-muted">Matched to World&rsquo;s Fair 2026 program</dt><dd className="h-serif text-2xl font-semibold">{wfCount}</dd></div>
           <div><dt className="text-muted">Organizations researched</dt><dd className="h-serif text-2xl font-semibold">{orgs.toLocaleString()}</dd></div>
         </dl>
         <Link href="/talks" className="mt-8 inline-block rounded-lg bg-accent px-5 py-3 text-sm font-medium text-white hover:opacity-90 dark:text-black">

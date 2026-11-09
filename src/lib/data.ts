@@ -23,6 +23,7 @@ export type Talk = {
   org: string | null;
   tech: string[];
   blurb: string;
+  wf?: boolean;
 };
 
 export type Report = {
@@ -66,6 +67,15 @@ export type Report = {
   resources: { type: string | null; title: string | null; url: string | null; why: string | null; verification: string | null; firstParty: boolean | null }[];
   evidence: { kind: string | null; excerpt: string | null; supports: string | null }[];
   searches: string[];
+  worldsFair?: {
+    sessionTitle: string;
+    day: string;
+    time: string;
+    room: string;
+    track: string | null;
+    type: string;
+    speakers: { name: string; role: string | null; company: string | null }[];
+  };
 };
 
 export const categories = (categoriesJson as Category[]).sort((a, b) => a.sort - b.sort);

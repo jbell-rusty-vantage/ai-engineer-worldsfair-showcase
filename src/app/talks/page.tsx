@@ -15,6 +15,7 @@ export default function AllTalks() {
     difficulty: t.difficulty,
     org: t.org,
     tech: t.tech,
+    wf: t.wf,
     categoryLabel: labels[t.category] ?? "Uncategorized",
   }));
   return (
