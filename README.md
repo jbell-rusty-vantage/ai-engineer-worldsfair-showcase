@@ -19,3 +19,7 @@ pnpm build
 ```
 
 Not affiliated with the AI Engineer conference or any organization mentioned.
+
+## Categorization
+
+Primary and secondary categories were assigned by Jev (System One, `jev-1.13.0`, direct provider) from each talk's summary, takeaways, concepts and technologies, over the 17-category taxonomy (`scripts/classify-with-jev.mjs`, applied by `scripts/apply-classification.mjs`; raw answers with probabilities in `data/jev-classification.json`). This replaced the original pipeline labels, which put ~90% of talks in one category.
