@@ -95,7 +95,18 @@ export default async function TalkPage({ params }: Props) {
         <Link href={`/c/${tx.primary.code}`} className="hover:text-fg">{tx.primary.label}</Link>
       </nav>
 
-      <header className="mt-4 max-w-3xl">
+      <header className="mt-4 grid gap-6 md:grid-cols-[minmax(0,1fr)_20rem] md:items-start">
+        <a href={r.url} target="_blank" rel="noreferrer" aria-label="Watch on YouTube" className="block md:order-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`https://i.ytimg.com/vi/${r.id}/hqdefault.jpg`}
+            alt={`Thumbnail for ${displayTitle(r)}`}
+            width={480}
+            height={360}
+            className="aspect-video w-full rounded-xl border border-line bg-surface object-cover"
+          />
+        </a>
+        <div className="md:order-1">
         <h1 className="h-serif text-3xl font-semibold leading-tight sm:text-4xl">{displayTitle(r)}</h1>
         <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
           {r.channel && <span>{r.channel}</span>}
@@ -111,6 +122,7 @@ export default async function TalkPage({ params }: Props) {
         >
           Watch on YouTube ↗
         </a>
+        </div>
       </header>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[11rem_minmax(0,1fr)]">

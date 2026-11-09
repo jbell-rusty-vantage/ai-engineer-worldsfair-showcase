@@ -76,8 +76,19 @@ export function TalkList({ items, showCategory = false }: { items: TalkItem[]; s
       </p>
       <ul className="mt-2 divide-y divide-line border-y border-line">
         {filtered.slice(0, shown).map((t) => (
-          <li key={t.id} className="flex flex-col gap-2 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-            <div className="min-w-0">
+          <li key={t.id} className="flex flex-col gap-3 py-4 sm:flex-row sm:items-start sm:gap-5">
+            <Link href={`/t/${t.id}`} tabIndex={-1} aria-hidden className="block w-full shrink-0 sm:w-44">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`https://i.ytimg.com/vi/${t.id}/mqdefault.jpg`}
+                alt=""
+                loading="lazy"
+                width={320}
+                height={180}
+                className="aspect-video w-full rounded-lg border border-line bg-surface object-cover"
+              />
+            </Link>
+            <div className="min-w-0 flex-1">
               <Link href={`/t/${t.id}`} className="h-serif text-lg font-medium leading-snug hover:text-accent">
                 {t.title ?? `Talk ${t.id}`}
               </Link>
@@ -93,7 +104,7 @@ export function TalkList({ items, showCategory = false }: { items: TalkItem[]; s
               href={`https://www.youtube.com/watch?v=${t.id}`}
               target="_blank"
               rel="noreferrer"
-              className="shrink-0 self-start whitespace-nowrap rounded-md border border-line px-3 py-1.5 text-sm hover:border-accent hover:text-accent"
+              className="shrink-0 self-start whitespace-nowrap rounded-md border border-line px-3 py-1.5 text-sm hover:border-accent hover:text-accent sm:mt-1"
             >
               Watch on YouTube ↗
             </a>

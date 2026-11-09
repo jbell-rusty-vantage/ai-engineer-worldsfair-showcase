@@ -18,6 +18,10 @@ export default function Home() {
           brief for each. Browse by engineering category, then open a talk for its summary, taxonomy, organizations, technologies, curriculum
           signals and sources. Every brief links back to the original video.
         </p>
+        <p className="mt-4 text-base leading-7 text-muted">
+          The talks come from the <a href="https://youtube.com/@aidotengineer" target="_blank" rel="noreferrer" className="text-accent underline">AI Engineer YouTube channel</a>,
+          home of the AI Engineer World&rsquo;s Fair (2026: June 29 &ndash; July 2, San Francisco). <Link href="/about" className="text-accent underline">More about the source</Link>.
+        </p>
         <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-4 text-sm">
           <div><dt className="text-muted">Talks</dt><dd className="h-serif text-2xl font-semibold">{talks.length.toLocaleString()}</dd></div>
           <div><dt className="text-muted">Categories</dt><dd className="h-serif text-2xl font-semibold">{categories.length}</dd></div>
